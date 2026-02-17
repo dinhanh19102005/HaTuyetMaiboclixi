@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Bốc Lì Xì Tết 2026 - Hà Tuyết Mai</title>
+
+<style>
+body {
+    margin: 0;
+    padding: 20px;
+    font-family: Arial, sans-serif;
+    text-align: center;
+    color: white;
+
+    background:
+        linear-gradient(rgba(0,0,0,0.45), rgba(0,0,0,0.45)),
+        url("bg-tet-2026.jpg") no-repeat center center fixed;
+
+    background-size: cover;
+}
+
+h1 {
+    font-size: 30px;
+    color: #ff66cc;
+    text-shadow: 2px 2px 8px black;
+}
+
+p {
+    font-size: 16px;
+}
+
+.envelopes {
+    margin-top: 40px;
+}
+
+.envelope {
+    font-size: 70px;
+    cursor: pointer;
+    margin: 15px;
+    display: inline-block;
+    transition: transform 0.4s;
+}
+
+.envelope:hover {
+    transform: scale(1.1);
+}
+
+.envelope.open {
+    transform: rotateY(180deg);
+}
+
+#result {
+    margin-top: 30px;
+    font-size: 20px;
+    min-height: 100px;
+}
+
+button {
+    margin-top: 20px;
+    padding: 10px 20px;
+    font-size: 16px;
+    border: none;
+    border-radius: 10px;
+    background: gold;
+    color: red;
+    font-weight: bold;
+}
+
+#qrBox {
+    margin-top: 20px;
+    display: none;
+}
+
+#qrBox img {
+    width: 70%;
+    max-width: 250px;
+    border-radius: 15px;
+}
+
+@media (max-width: 480px) {
+    h1 { font-size: 24px; }
+    .envelope { font-size: 60px; margin: 10px; }
+    #result { font-size: 18px; }
+}
+</style>
+</head>
+
+<body>
+
+<h1>🧧 BỐC LÌ XÌ TẾT 2026 🧧</h1>
+<p>Chọn 1 bao lì xì may mắn 🎁</p>
+
+<p style="color: gold; font-weight: bold;">
+⚠ Lưu ý: Chỉ chọn 1 lần, số tiền tuy nhỏ nhưng mang nhiều ý nghĩa 🎁
+</p>
+
+<div class="envelopes">
+    <span class="envelope" onclick="pickLucky(this)">🧧</span>
+    <span class="envelope" onclick="pickLucky(this)">🧧</span>
+    <span class="envelope" onclick="pickLucky(this)">🧧</span>
+</div>
+
+<div id="result"></div>
+
+<button onclick="showQR()">Lì Xì Hà Tuyết Mai 💌</button>
+
+<div id="qrBox">
+    <h3 style="color:#ff66cc;">Quét QR để lì xì Hà Tuyết Mai 😆</h3>
+    <img src="anhlixi.png" alt="QR">
+</div>
+
+<script>
+let picked = false;
+
+function pickLucky(element) {
+
+    if (picked) {
+        alert("Bạn đã bốc rồi 😜");
+        return;
+    }
+
+    picked = true;
+    element.classList.add("open");
+
+    const prizes = [
+        { money: "2000", wish: "🌸 Chúc bạn năm mới vui vẻ và nhiều may mắn!" },
+        { money: "5000", wish: "💖 Chúc bạn học giỏi, xinh đẹp và thành công!" },
+        { money: "10000", wish: "🎉 Chúc bạn năm 2026 thật rực rỡ và hạnh phúc!" }
+    ];
+
+    const random = prizes[Math.floor(Math.random() * prizes.length)];
+
+    setTimeout(() => {
+        document.getElementById("result").innerHTML =
+            "🎉 Chúc Mừng Hà Tuyết Mai 🎉<br><br>" +
+            "💰 <span style='font-size:28px;color:#ff66cc'>" + random.money + "đ</span><br><br>" +
+            random.wish + "<br><br>" +
+            "📸 Chụp màn hình gửi Hà Tuyết Mai nha 😆";
+    }, 400);
+}
+
+function showQR() {
+    document.getElementById("qrBox").style.display = "block";
+}
+</script>
+
+</body>
+</html>
